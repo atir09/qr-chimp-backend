@@ -3,7 +3,7 @@
 const express=require("express");
 const bodyParser = require('body-parser');
 require("dotenv").config();
-const { Server } = require("socket.io");
+// const { Server } = require("socket.io");
 const http = require("http");
 const cookieParser = require('cookie-parser')
 
@@ -61,22 +61,22 @@ app.use("/admin",adminRoute)
 
 // ///////.....................Socket................................
 
-const users = {};
+// const users = {};
 
-io.on("connection", (socket) => {
-  socket.on("send", (message) => {
-    socket.broadcast.emit("receive", {
-      message: message,
-      name: users[socket.id],
-    });
-  });
+// io.on("connection", (socket) => {
+//   socket.on("send", (message) => {
+//     socket.broadcast.emit("receive", {
+//       message: message,
+//       name: users[socket.id],
+//     });
+//   });
 
 
-socket.on("disconnect", (message) => {
-    socket.broadcast.emit("leave", users[socket.id])
-    delete users[socket.id];
-   });
-  });
+// socket.on("disconnect", (message) => {
+//     socket.broadcast.emit("leave", users[socket.id])
+//     delete users[socket.id];
+//    });
+//   });
 
 
 // ...................................................Listen.......................................
