@@ -20,8 +20,8 @@ const {logger}=require("./Middlewares/logger")
 
 // .........................................App.........................................
 const app=express();
-const httpServer = http.createServer(app);
-const io = new Server(httpServer);
+// const httpServer = http.createServer(app);
+// const io = new Server(httpServer);
 
 const cors = require('cors')
 
@@ -81,7 +81,7 @@ app.use("/admin",adminRoute)
 
 // ...................................................Listen.......................................
 
-httpServer.listen(process.env.port,async()=>{
+app.listen(process.env.port,async()=>{
     try {
         await connection;
         console.log("connected to DataBase")
